@@ -1,50 +1,72 @@
-body>div>header,
-body>div>section,
-body>div>footer {
-  width: min(100% - 2rem, 71.25rem);
-  margin-inline: auto;
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+html {
+  height: 100%;
 }
 
 body {
-  margin: .625rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Arimo', sans-serif;
+  margin-inline: auto;
+  width: min(100% - 2rem, 71.25rem);
 }
 
-body>div>header {
+nav a.active {
+  color: rgb(17, 0, 255);
+}
+
+#root {
+  display: flex;
+  flex-direction: column; 
+  min-height: 90vh;
+}
+
+header {
   display: flex;
   flex-direction: column;
 }
 
-body>div>header>nav>ul {
+header>nav>ul {
+  background: deepskyblue;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
-  margin: 0;
-  background: deepskyblue;
-}
-
-ul {
   list-style: none;
+  margin: 0;
 }
 
-body>div>header>nav>ul a {
-  text-decoration: none;
+header>nav>ul a {
+  color: white;
   display: block;
   padding: 1em;
-  color: white
+  text-decoration: none;
 }
 
-body>div>header>nav>ul a:hover {
+header>nav>ul a:hover {
   background: #1565C0;
 }
 
-.articleContainer {
+footer {
+  border-top: 1px solid #00BFFF;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+footer a {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #1565C0;
+  font-weight: 800;
+}
+
+.boxContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -59,18 +81,18 @@ section>article>img {
   object-fit: contain;
 }
 
-.articleContainer a {
+.boxContainer a {
   text-decoration: none;
 }
 
-.articleContainer article {
+.boxContainer article {
   border: thick double #00d0ff;
   border-radius: .75rem;
   color: deepskyblue;
   margin: .3125rem;
 }
 
-.articleContainer article h4 {
+.boxContainer article h4 {
   min-height: 4.0625rem;
 }
 
@@ -97,53 +119,58 @@ section>article>img {
   width: min(100% - 2rem, 50rem);
 }
 
-button {
-  border: 0;
-  line-height: 2.5;
-  padding: 0 1.25rem;
+.searchBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  height: 2.0625rem;
   margin: 0 1.25rem 0 0;
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
+}
+
+button {
+  background-color: deepskyblue;
+  border: 0;
   border-radius: 10px;
-  background-color: rgba(220, 0, 0, 1);
-  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
   box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 2.5;
+  margin: 0 1.25rem 0 0;
+  padding: 0 1.25rem;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
 }
 
-div>section>button:hover {
-  background-color: rgba(255, 0, 0, 1);
-}
-
-div>section>button:active {
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+button:hover {
+  background-color: #1565C0;
 }
 
 @media (max-width: 600px) {
   body>div>header>nav>ul {
-    flex-flow: column wrap;
     padding: 0;
+    flex-flow: column wrap;
   }
 
-  body>div>header>nav>ul a {
-    text-align: center;
-    padding: 10px;
+  header>nav>ul a {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
   }
 
-  body>div>header>nav>ul li:last-of-type a {
+  header>nav>ul li:last-of-type a {
     border-bottom: none;
   }
 
-  .articleContainer {
+  .boxContainer {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 450px) {
-  .articleContainer {
+  .boxContainer {
     grid-template-columns: 1fr;
   }
 }

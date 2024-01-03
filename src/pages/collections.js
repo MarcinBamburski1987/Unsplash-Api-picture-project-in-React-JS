@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import fetcherUnsplash from '../api/fetcher';
+import {getData} from '../api/api';
 import { Link } from 'react-router-dom';
 
 function Collections() {
@@ -7,17 +7,17 @@ function Collections() {
     const [collecions, setCollections] = useState([]);
 
     useEffect(() => {
-        fetcherUnsplash('/collections', 'page=7')
+        getData('/collections', 'page=7')
             .then((data) => {
-                console.log('collection data: ', data);
+                console.log('collections data: ', data);
                 setCollections(data);
             })
     }, [])
 
     return (
         <>
-            <h3>SECTION LIST</h3>
-            <div className="articleContainer">
+            <h3>List of sections</h3>
+            <div className="boxContainer">
                 {
                     collecions?.map?.(item => (
                         <div key={item?.id}>

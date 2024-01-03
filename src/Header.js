@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const TITLE = 'Home Page'
+const TITLE = "Pictures React JS App";
 
 function Header() {
   return (
@@ -9,16 +9,26 @@ function Header() {
         <h1>{TITLE}</h1>
         <nav>
           <ul>
-            <li><Link to="/">Home Page</Link></li>
-            <li><Link to="/sectionCollections">Sections List</Link></li>
-            <li><Link to="/defaultArticle">defaultArticle</Link></li>
-            <li><Link to="/firstArticle">firstArticle</Link></li>
-            <li><Link to="/secondArticle">secondArticle</Link></li>
+            <li>
+              <NavLink to="/">home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/sectionCollections">pictures sections</NavLink>
+            </li>
+            <li>
+              <NavLink to="/defaultArticle">default article</NavLink>
+            </li>
+            <li>
+              <NavLink to="/firstArticle">first article</NavLink>
+            </li>
+            <li>
+              <NavLink to="/secondArticle">second article</NavLink>
+            </li>
           </ul>
         </nav>
       </header>
     </>
-  )
+  );
 }
 
-export default Header
+export default Header;

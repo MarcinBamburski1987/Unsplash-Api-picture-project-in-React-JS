@@ -1,18 +1,17 @@
 import { Route, Routes } from "react-router-dom";
-import Article from "./Article";
-import HomePage from "./pages/index"
+import Article from "./components/Article";
+import HomePage from "./pages/homePage";
 import Collections from "./pages/collections";
-import SingleSection from "./pages/singleSection";
+import SingleSection from "./components/SingleSection";
 import Picture from "./pages/picture";
 
 function Main() {
 
-    const title = 'Main!';
+    const TITLE = 'Main content!';
     return (
         <>
             <section>
-                <h2>{title}</h2>
-
+                <h2>{TITLE}</h2>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/singleSection/:id" element={<SingleSection />} />
